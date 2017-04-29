@@ -1,0 +1,12 @@
+button {
+    border: 1px solid #393939;
+    background-color: #cccccc;
+    padding: 8px;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background-color: #eeeeee;
+}

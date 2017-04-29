@@ -1,0 +1,71 @@
+/**
+ * Created by obi on 2017-04-28.
+ */
+
+@import "colors";
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #393939;
+  text-align: center;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 20px;
+}
+
+p#paraDynamicContent {
+  border: 1px solid #393939;
+  padding: 20px;
+  margin: 30px auto;
+  width: 50%;
+  font-size: 18px;
+  display: none;
+}
+
+button {
+  border: 1px solid #393939;
+  background-color: #cccccc;
+  padding: 8px;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #eeeeee;
+}
+
+button#btnRandomInt {
+  background-color: $main;
+  border: 1px solid #393939;
+  color: #eeeeee;
+  padding: 5px;
+}
+
+button#btnRandomInt:hover {
+  background-color: lightblue;
+  color: navy;
+}
+
+button#btnRandomIntWithinRange {
+  background-color: $secondary;
+  border: 1px solid #393939;
+  color: #eeeeee;
+  padding: 5px;
+}
+
+button#btnRandomIntWithinRange:hover {
+  background-color: lightgoldenrodyellow;
+  color: dimgray;
+}
+
+p#paraDynamicContent2 {
+  border: 1px solid #393939;
+  padding: 20px;
+  margin: 30px auto;
+  width: 50%;
+  font-size: 18px;
+  display: block;
+}
