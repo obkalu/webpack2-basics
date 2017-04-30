@@ -7,14 +7,16 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
-// var webpack = require("webpack");
+var webpack = require("webpack");
 
 const extractTextPlugin = new ExtractTextPlugin({
     filename: "css/main.css"
 });
 
 module.exports = {
-    entry: "./src/webapp/scripts/app.js",
+    entry: {
+        app: "./src/webapp/scripts/app.js"
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "js/bundle.js"
@@ -55,14 +57,41 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name].[ext]"
+                        }
+                    }
+                ],
+                exclude: path.resolve(__dirname, "src/webapp/index.html")
             }
         ]
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
         extractTextPlugin,
         new HtmlWebpackPlugin({
+            filename: "index.html",
             template: "src/webapp/index.html"
         }),
+        // new HtmlWebpackPlugin({
+        //     filename: "about.html",
+        //     template: "src/webapp/about.html",
+        //     chunks: []
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "contact.html",
+        //     template: "src/webapp/contact.html",
+        //     chunks: []
+        // }),
         new CleanWebpackPlugin(["dist"])
         /** new webpack.optimize.UglifyJsPlugin({ }) */
     ]

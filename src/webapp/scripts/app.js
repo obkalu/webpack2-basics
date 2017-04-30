@@ -1,28 +1,31 @@
 /**
  * Created by obi on 2017-04-28.
  */
-
+import "jquery";
 import "../styles/scss/main.scss";
+import "../about.html";
+import "../contact.html";
 
 import { showOrHideContentButton, paraDynamicContent } from "./dom-loader";
 import { RandomGenerator } from "./random-generator";
 
-const outputContentParagraph = document.querySelector("#paraDynamicContent2");
+const outputContentParagraph = $("#paraDynamicContent2");
+
 const outputRandomInteger = () => {
-        outputContentParagraph.textContent = RandomGenerator.randomInteger();
+        outputContentParagraph.text(RandomGenerator.randomInteger());
     };
 const outputRandomRange = () => {
-        outputContentParagraph.textContent = RandomGenerator.randomIntegerInRange(1, 500);
+        outputContentParagraph.text(RandomGenerator.randomIntegerInRange(1, 500));
     };
 
-const randomIntBtn = document.querySelector("#btnRandomInt");
+const randomIntBtn = jQuery("#btnRandomInt");
 const randomIntRangeBtn = document.querySelector("#btnRandomIntWithinRange");
 
 let isContentHidden = true;
 
 showOrHideContentButton.addEventListener("click", toggleContentState);
 
-randomIntBtn.addEventListener("click", outputRandomInteger);
+randomIntBtn.click(outputRandomInteger);
 randomIntRangeBtn.addEventListener("click", outputRandomRange);
 
 
